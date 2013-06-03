@@ -127,6 +127,7 @@ Red='\e[0;31m'          # Red
 Green='\e[0;32m'        # Green
 Yellow='\e[0;33m'       # Yellow
 Blue='\e[0;34m'         # Blue
+Lightblue='\e[0;34m\]'  # Lightblue
 Purple='\e[0;35m'       # Purple
 Cyan='\e[0;36m'         # Cyan
 White='\e[0;37m'        # White
@@ -211,7 +212,7 @@ alias cda='cd /home/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/a
 source /usr/share/git/completion/git-completion.bash
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
-PS1='\n\u@\h:\w$(__git_ps1 " (%s)")\$ '
+PS1='\n\u@\h:'"${Cyan}"'\w '"${Green}"'$(__git_ps1 "(%s)")\n'"${BIWhite}"'\$ '"${Color_Off}"
 
 # editor
 export EDITOR=emacs
