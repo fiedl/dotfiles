@@ -1,0 +1,56 @@
+# brew
+export PATH=/usr/local/bin:$PATH
+
+# java
+export JAVA_HOME=`/usr/libexec/java_home`
+
+# rbenv
+PATH="$HOME/.rbenv/bin:$PATH"
+PATH="$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init -)"
+
+# executable scripts
+export PATH=$PATH:/home/fiedl/.exec
+
+# editor
+export EDITOR=emacs
+
+# colors
+source ~/.bash_colors
+
+# bash prompt
+PS1='\n\u@\h:'"\[$Cyan\]"'\w '"\[$Green\]"'$(__git_ps1 "(%s)")'"\[$BIWhite\]"'\$ '"\[$Color_Off\]"
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# general aliases
+cdl() { cd "$@"; ls; }
+alias emacs='emacs -nw'
+alias e='mate'
+
+# directory aliases
+alias cdw='cd /Users/fiedl/rails/wingolfsplattform'
+alias cdy='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform'
+alias cdo='cd /Users/fiedl/rails/wingolfsplattform_ops'
+alias cda='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/'
+
+# git tab completion and prompt, see https://wiki.archlinux.org/index.php/Git
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# rails shortcuts
+alias b='bundle'
+alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
+alias gis='git status'
+alias pry='be pry -r ./config/environment'
+
+# documentation shortcut: generates documentation and opens it in the browser
+alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && chromium-browser doc/index.html'
+
+
