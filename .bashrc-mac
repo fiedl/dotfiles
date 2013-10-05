@@ -28,6 +28,7 @@ alias l='ls -CF'
 
 # general aliases
 cdl() { cd "$@"; ls; }
+gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
 alias emacs='emacs -nw'
 alias e='mate'
 
