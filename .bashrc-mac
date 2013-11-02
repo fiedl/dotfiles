@@ -54,4 +54,7 @@ alias pry='be pry -r ./config/environment'
 # documentation shortcut: generates documentation and opens it in the browser
 alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && chromium-browser doc/index.html'
 
+# icecube
+export I3_PORTS="/Users/fiedl/icecube/software/ports"
 
+alias ice-port='/Users/fiedl/icecube/software/ports/bin/port'
