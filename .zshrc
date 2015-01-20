@@ -40,39 +40,40 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew bundler macports osx )
+#plugins=(git brew bundler macports osx )
+plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
 
-
-# brew
-export PATH=/usr/local/bin:$PATH
-
-# java
-export JAVA_HOME=`/usr/libexec/java_home`
+# iterm customizations
+source bin/iterm2.zsh
 
 # rbenv
-PATH="$HOME/.rbenv/bin:$PATH"
-PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
-
-# executable scripts
-export PATH=$PATH:/home/fiedl/.exec
 
 # editor
 export EDITOR=emacs
 
+# PS1
+#PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m(fiedl-mbp)%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
+#%_$(prompt_char) "
+
 # general aliases
 cdl() { cd "$@"; ls; }
 gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
-alias emacs='emacs -nw'
+# alias emacs='emacs -nw'
 alias e='mate'
+alias f='ffind'
+unalias g
+function g () { grep --exclude-dir log --exclude-dir tmp --exclude-dir .yardoc --exclude-dir doc --recursive --line-number "$*" . }  # --ignore-case
+alias ka='pkill -f'
 
 # directory aliases
 alias cdw='cd /Users/fiedl/rails/wingolfsplattform'
 alias cdy='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform'
-alias cdo='cd /Users/fiedl/rails/wingolfsplattform_ops'
+alias cdo='cd /Users/fiedl/rails/your_platform_ops'
 alias cda='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/'
+alias cdm='cd /Users/fiedl/rails/my_platform'
 
 # rails shortcuts
 alias b='bundle'
@@ -81,11 +82,57 @@ alias bi='bundle install'
 alias bu='bundle update'
 alias gis='git status'
 alias pry='be pry -r ./config/environment'
+alias production='git co production && git merge master && git co master'
 
 # documentation shortcut: generates documentation and opens it in the browser
 alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && chromium-browser doc/index.html'
 
 # icecube
-export I3_PORTS="/Users/fiedl/icecube/software/ports"
-alias ice-port='/Users/fiedl/icecube/software/ports/bin/port'
+alias ice-port="$I3_PORTS/bin/port"
+# alias ice-cmake="$I3_PORTS/bin/cmake"
+alias shovel="$SIM/../build/bin/steamshovel"
+alias clsim-make="cd $SIM/clsim && make -j 4 && cd -"
+alias cdc="cd /Users/fiedl/icecube/clsim"
 
+alias icesim="$SIM/env-shell.sh"
+alias icesimfix="source ~/icecube/geant4fix.sh"
+alias icedoc="open $SIM/../documentation/html/index.html && cd $SIM/../src && doxygen sim.doxygen"
+alias nb='ipython notebook --pylab=inline'
+
+alias ci="./zsh_to_markdown *.sh && git add . && git commit -m"
+
+# python
+# export PYTHONPATH=/usr/local/lib/python3.3:$PYTHONPATH
+# alias ipy='cd ~/diplomarbeit/Notebooks && ipython3 notebook --pylab=inline'
+
+# iruby
+alias iruby-notebook=' iruby notebook --pylab=inline'
+
+# Musik
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias klassikradio='vlc http://edge.live.mp3.mdn.newmedia.nacamar.net/klassikradio128/livestream.mp3 > /dev/null 2>&1 &'
+#alias classicfm='open http://www.classicfm.com/radio/player/'
+alias classicfm='open -a iTunes -g http://media-ice.musicradio.com/ClassicFMMP3.m3u'
+
+# uni ssh tunnel
+alias uni-ssh='ssh sfiedlschuster@pi2158.physik.uni-erlangen.de -L 8080:proxy.rrze.uni-erlangen.de:80'
+
+source /Users/fiedl/.iterm2_shell_integration.zsh
+
+# stuff from moo
+# https://github.com/idk/zsh/blob/master/.zshrc
+# 
+alias matrix='cmatrix -C magenta'
+
+# games
+alias freelancer='cd "/Volumes/BOOTCAMP/Program Files (x86)/Microsoft Games/Freelancer/EXE" && wine Freelancer.exe'
+
+
+# identify the computer on login
+figlet $(hostname)
+
+# added by travis gem
+[ -f /Users/fiedl/.travis/travis.sh ] && source /Users/fiedl/.travis/travis.sh
+
+# zip verschlüsseln
+alias zip-verschlüsseln='echo "zip -er archive.zip folder-to-zip"' 

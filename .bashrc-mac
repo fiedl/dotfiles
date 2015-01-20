@@ -58,3 +58,6 @@ alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && 
 export I3_PORTS="/Users/fiedl/icecube/software/ports"
 
 alias ice-port='/Users/fiedl/icecube/software/ports/bin/port'
+
+# added by travis gem
+[ -f /Users/fiedl/.travis/travis.sh ] && source /Users/fiedl/.travis/travis.sh
