@@ -1,0 +1,24 @@
+[user]
+	name = Sebastian Fiedlschuster
+	email = sebastian@fiedlschuster.de
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	graph = log --oneline --decorate --graph
+	last = log -1 HEAD
+[core]
+	editor = emacs
+	excludefile = /Users/fiedl/.gitignore_global
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[push]
+	default = matching
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
