@@ -1,0 +1,50 @@
+#
+# This script moves and resizes the current window to the following positions
+# in turn:
+#
+# |--------|---------|--------|
+# |        |         |        |
+# |        |         |        |
+# |   (1)  |   (2)   |   (3)  |
+# |        |         |        |
+# |        |         |        |
+# |--------|---------|--------|
+#
+# Triggering this script by a hotkey in your favorite window manager (e.g. compiz)
+# will add a certain tiling window manager functionality on top of the regular
+# window manager.
+#
+# This script requires the following packages:
+#
+#   * ruby
+#   * xdotool
+#   * wmctrl
+#
+# Kind regards,
+# Sebastian Fiedlschuster
+# 2015-01-21
+#
+# Released under the GPL.
+#
+
+# class Window
+#   def initialize(window_id)
+#     @window_id = window_id
+#   end
+# end
+# 
+# class CurrentWindow < Window
+#   def initialize
+#     super Window.current_window_id
+#   end
+# end
+
+
+def current_window_id
+  @current_window_id ||= `xdotool getwindowfocus`
+end
+
+def move_window(window_id, x, y, width = -1, height = -1)
+  `wmctrl -i -r #{window_id} -e 0,x,y,w,h`
+end
+
