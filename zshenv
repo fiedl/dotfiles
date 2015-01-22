@@ -11,8 +11,8 @@ export PATH=$PATH:/home/fiedl/.exec
 
 # java
 # export JAVA_HOME=`/usr/libexec/java_home`
-# export JAVA_HOME="/Library/Java/Home"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+[[ -f /Library/Java/Home ]] && export JAVA_HOME="/Library/Java/Home"
+[[ -f /usr/libexec/java_home ]] && export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
 # icecube
 export ICECUBE_SOFTWARE="$HOME/icecube/software"   # modify this to your needs!

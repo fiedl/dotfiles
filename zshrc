@@ -43,10 +43,16 @@ DISABLE_CORRECTION="true"
 #plugins=(git brew bundler macports osx )
 plugins=(git bundler)
 
-source $ZSH/oh-my-zsh.sh
+
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
+
+include $ZSH/oh-my-zsh.sh
+[[ -f "/usr/share/oh-my-zsh/oh-my-zsh.sh" ]] && ZSH="/usr/share/oh-my-zsh/" && source /usr/share/oh-my-zsh/oh-my-zsh.sh
 
 # iterm customizations
-source bin/iterm2.zsh
+include bin/iterm2.zsh
 
 # rbenv
 eval "$(rbenv init -)"
@@ -62,7 +68,10 @@ export EDITOR=emacs
 cdl() { cd "$@"; ls; }
 gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
 # alias emacs='emacs -nw'
-alias e='mate'
+
+[[ -f `which mate` ]] && alias e='mate'
+[[ -f `which emacs` ]] && alias e='emacs'
+
 alias f='ffind'
 unalias g
 function g () { grep --exclude-dir log --exclude-dir tmp --exclude-dir .yardoc --exclude-dir doc --recursive --line-number "$*" . }  # --ignore-case
@@ -117,7 +126,7 @@ alias classicfm='open -a iTunes -g http://media-ice.musicradio.com/ClassicFMMP3.
 # uni ssh tunnel
 alias uni-ssh='ssh sfiedlschuster@pi2158.physik.uni-erlangen.de -L 8080:proxy.rrze.uni-erlangen.de:80'
 
-source /Users/fiedl/.iterm2_shell_integration.zsh
+include /Users/fiedl/.iterm2_shell_integration.zsh
 
 # stuff from moo
 # https://github.com/idk/zsh/blob/master/.zshrc
