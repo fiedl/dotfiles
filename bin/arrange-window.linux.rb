@@ -56,18 +56,25 @@ def current_window_id
 end
 
 def move_window(window_id, x, y, width = -1, height = -1)
-  `wmctrl -i -r #{window_id} -e 0,#{x},#{y},#{width},#{height}`
+  `wmctrl -i -r #{window_id} -e 0,#{x.to_i},#{y.to_i},#{width.to_i},#{height.to_i}`
 end
 
 def move_window_to_preset(window_id, preset_id)
   case preset_id
   when 1
-    move_window window_id,   10,                   0, screen_width / 3, screen_height
+    move_window window_id,   0,                    0, screen_width / 3, screen_height
   when 2
     move_window window_id,   screen_width / 3,     0, screen_width / 3, screen_height
   when 3
     move_window window_id,   screen_width / 3 * 2, 0, screen_width / 3, screen_height
+  when 4
+    move_window window_id,   0,                    0, screen_width * 0.61803398875, screen_height
+  when 5
+    move_window window_id,   screen_width * 0.61803398875,  0, screen_width * (1-0.61803398875), screen_height
   end
+end
+def number_of_presets
+  5
 end
 
 def last_preset
@@ -80,7 +87,7 @@ def store_last_preset(preset)
 end
 
 preset = (last_preset || 0) + 1
-preset = 1 if preset > 3
+preset = 1 if preset > number_of_presets
 store_last_preset preset
 
 move_window_to_preset current_window_id, preset
