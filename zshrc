@@ -78,11 +78,11 @@ function g () { grep --exclude-dir log --exclude-dir tmp --exclude-dir .yardoc -
 alias ka='pkill -f'
 
 # directory aliases
-alias cdw='cd /Users/fiedl/rails/wingolfsplattform'
-alias cdy='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform'
-alias cdo='cd /Users/fiedl/rails/your_platform_ops'
-alias cda='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/'
-alias cdm='cd /Users/fiedl/rails/my_platform'
+alias cdw="cd $HOME/rails/wingolfsplattform"
+alias cdy="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform"
+alias cdo="cd $HOME/rails/your_platform_ops"
+alias cda="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/"
+alias cdm='cd $HOME/rails/my_platform'
 
 # rails shortcuts
 alias b='bundle'

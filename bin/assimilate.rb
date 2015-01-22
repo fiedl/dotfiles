@@ -34,7 +34,9 @@ end
 def play_intro
   install_packages :figlet, :wget, :mplayer
   shell "figlet -c Assimilation in Progress ..."
-  shell "wget www.moviesoundclips.net/movies1/startrek8/borg.mp3 -O - |mplayer -cache 8192 - &"
+  Process.fork do
+    shell "wget www.moviesoundclips.net/movies1/startrek8/borg.mp3 -O - |mplayer -noconsolecontrols -cache 8192 - > /dev/null 2>&1 &"
+  end
 end
 
 # This symlinks the given dotfile.
@@ -68,16 +70,42 @@ def symlink_file(file)
 end
 
 def install_zsh
+  log.section "Install ZSH"
   install_packages 'oh-my-zsh-git'
   install_file '.zshrc'
   install_file '.zshenv'
 end
 
 def install_fun
+  log.section "Install Fun"
   install_packages :cmatrix
 end
 
-# play_intro
-install_zsh
-install_fun  
+def install_ruby
+  log.section "Install Ruby"
+  unless File.exist? "~/.rbenv"
+    shell "git clone git://github.com/sstephenson/rbenv.git ~/.rbenv"
+    shell "git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
+  end
+  shell "rbenv install --skip-existing 2.2.0"
+  shell "rbenv global 2.2.0"
+  shell "rbenv rehash"
+  shell "ruby --version"
+end
 
+def install_multimedia
+  log.section "Install Multimedia"
+  install_packages :moc
+end
+
+def install_tools
+  log.section "Install Tools"
+  install_packages :htop
+end
+
+play_intro
+install_zsh
+install_fun
+install_ruby
+install_multimedia
+install_tools
