@@ -43,13 +43,13 @@ DISABLE_CORRECTION="true"
 #plugins=(git brew bundler macports osx )
 plugins=(git bundler)
 
+# rbenv (must go before oh-my-zsh!)
+eval "$(rbenv init -)"
+
 source $ZSH/oh-my-zsh.sh
 
 # iterm customizations
 source bin/iterm2.zsh
-
-# rbenv
-eval "$(rbenv init -)"
 
 # editor
 export EDITOR=emacs
@@ -126,6 +126,8 @@ alias matrix='cmatrix -C magenta'
 
 # games
 alias freelancer='cd "/Volumes/BOOTCAMP/Program Files (x86)/Microsoft Games/Freelancer/EXE" && wine Freelancer.exe'
+
+alias random='echo $[RANDOM % 30 + 1] && read \?"I am waiting for you to press [Enter] before I continue." && echo $[RANDOM % 2 + 1] && echo "Have fun!"'                                                         
 
 
 # identify the computer on login
