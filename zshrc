@@ -64,6 +64,9 @@ export EDITOR=emacs
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m(fiedl-mbp)%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
 #%_$(prompt_char) "
 
+# # Set the hostname on Mac OS
+# sudo scutil --set HostName fiedl-mbp
+
 # general aliases
 cdl() { cd "$@"; ls; }
 gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
