@@ -46,10 +46,16 @@ plugins=(git bundler)
 # rbenv (must go before oh-my-zsh!)
 eval "$(rbenv init -)"
 
+if [ ! -d $ZSH ]
+then
+  curl -L http://install.ohmyz.sh | sh
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # iterm customizations
 source bin/iterm2.zsh
+[ -f .iterm2_shell_integration.zsh ] && source .iterm2_shell_integration.zsh
 
 # editor
 export EDITOR=emacs
@@ -69,11 +75,14 @@ function g () { grep --exclude-dir log --exclude-dir tmp --exclude-dir .yardoc -
 alias ka='pkill -f'
 
 # directory aliases
-alias cdw='cd /Users/fiedl/rails/wingolfsplattform'
-alias cdy='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform'
-alias cdo='cd /Users/fiedl/rails/your_platform_ops'
-alias cda='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/'
-alias cdm='cd /Users/fiedl/rails/my_platform'
+if [ -d /Users/fiedl ]
+then
+  alias cdw='cd /Users/fiedl/rails/wingolfsplattform'
+  alias cdy='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform'
+  alias cdo='cd /Users/fiedl/rails/your_platform_ops'
+  alias cda='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/'
+  alias cdm='cd /Users/fiedl/rails/my_platform'
+fi
 
 # rails shortcuts
 alias b='bundle'
@@ -88,47 +97,47 @@ alias production='git co production && git merge master && git co master'
 alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && chromium-browser doc/index.html'
 
 # icecube
-alias ice-port="$I3_PORTS/bin/port"
-# alias ice-cmake="$I3_PORTS/bin/cmake"
-alias shovel="$SIM/../build/bin/steamshovel"
-alias clsim-make="cd $SIM/clsim && make -j 4 && cd -"
-alias cdc="cd /Users/fiedl/icecube/clsim"
-
-alias icesim="$SIM/env-shell.sh"
-alias icesimfix="source ~/icecube/geant4fix.sh"
-alias icedoc="open $SIM/../documentation/html/index.html && cd $SIM/../src && doxygen sim.doxygen"
-alias nb='ipython notebook --pylab=inline'
-
-alias ci="./zsh_to_markdown *.sh && git add . && git commit -m"
-
-# python
-# export PYTHONPATH=/usr/local/lib/python3.3:$PYTHONPATH
-# alias ipy='cd ~/diplomarbeit/Notebooks && ipython3 notebook --pylab=inline'
-
-# iruby
-alias iruby-notebook=' iruby notebook --pylab=inline'
+if [ -d /Users/fiedl/icecube ]
+then
+  alias ice-port="$I3_PORTS/bin/port"
+  # alias ice-cmake="$I3_PORTS/bin/cmake"
+  alias shovel="$SIM/../build/bin/steamshovel"
+  alias clsim-make="cd $SIM/clsim && make -j 4 && cd -"
+  alias cdc="cd /Users/fiedl/icecube/clsim"
+  
+  alias icesim="$SIM/env-shell.sh"
+  alias icesimfix="source ~/icecube/geant4fix.sh"
+  alias icedoc="open $SIM/../documentation/html/index.html && cd $SIM/../src && doxygen sim.doxygen"
+  alias nb='ipython notebook --pylab=inline'
+  
+  alias ci="./zsh_to_markdown *.sh && git add . && git commit -m"
+  
+  # python
+  # export PYTHONPATH=/usr/local/lib/python3.3:$PYTHONPATH
+  # alias ipy='cd ~/diplomarbeit/Notebooks && ipython3 notebook --pylab=inline'
+  
+  # iruby
+  alias iruby-notebook=' iruby notebook --pylab=inline'
+fi
 
 # Musik
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-alias klassikradio='vlc http://edge.live.mp3.mdn.newmedia.nacamar.net/klassikradio128/livestream.mp3 > /dev/null 2>&1 &'
-#alias classicfm='open http://www.classicfm.com/radio/player/'
-alias classicfm='open -a iTunes -g http://media-ice.musicradio.com/ClassicFMMP3.m3u'
+if [ -f /Applications/VLC.app/Contents/MacOS/VLC ]
+then
+  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+  alias klassikradio='vlc http://edge.live.mp3.mdn.newmedia.nacamar.net/klassikradio128/livestream.mp3 > /dev/null 2>&1 &'
+  #alias classicfm='open http://www.classicfm.com/radio/player/'
+  alias classicfm='open -a iTunes -g http://media-ice.musicradio.com/ClassicFMMP3.m3u'
+fi
 
 # uni ssh tunnel
 alias uni-ssh='ssh sfiedlschuster@pi2158.physik.uni-erlangen.de -L 8080:proxy.rrze.uni-erlangen.de:80'
 
-source /Users/fiedl/.iterm2_shell_integration.zsh
 
 # stuff from moo
 # https://github.com/idk/zsh/blob/master/.zshrc
 # 
 alias matrix='cmatrix -C magenta'
-
-# games
-alias freelancer='cd "/Volumes/BOOTCAMP/Program Files (x86)/Microsoft Games/Freelancer/EXE" && wine Freelancer.exe'
-
 alias random='echo $[RANDOM % 30 + 1] && read \?"I am waiting for you to press [Enter] before I continue." && echo $[RANDOM % 2 + 1] && echo "Have fun!"'                                                         
-
 
 # identify the computer on login
 figlet $(hostname)
@@ -137,4 +146,4 @@ figlet $(hostname)
 [ -f /Users/fiedl/.travis/travis.sh ] && source /Users/fiedl/.travis/travis.sh
 
 # zip verschlüsseln
-alias zip-verschlüsseln='echo "zip -er archive.zip folder-to-zip"' 
+[ -d /Users/fiedl ] && alias zip-verschlüsseln='echo "zip -er archive.zip folder-to-zip"' 
