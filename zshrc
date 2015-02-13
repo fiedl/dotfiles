@@ -44,6 +44,7 @@ DISABLE_CORRECTION="true"
 plugins=(git bundler)
 
 # rbenv (must go before oh-my-zsh!)
+export PATH=$RBENV_ROOT/bin:/opt/rbenv/bin/rbenv:$PATH
 eval "$(rbenv init -)"
 
 if [ ! -d $ZSH ]
@@ -68,6 +69,16 @@ export EDITOR=emacs
 # PS1
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m(fiedl-mbp)%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
 #%_$(prompt_char) "
+
+# From: https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/tjkirch.zsh-theme
+#       https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme
+#
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
+PROMPT='%(?, ,%{$fg[red]%}FAIL: $?%{$reset_color%}
+)
+%{$fg[green]%}[%*] %{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
+${ret_status} %{$reset_color%}'
+RPROMPT=''
 
 # # Set the hostname on Mac OS
 # sudo scutil --set HostName fiedl-mbp
@@ -157,3 +168,15 @@ figlet $(hostname)
 
 # zip verschlüsseln
 [ -d /Users/fiedl ] && alias zip-verschlüsseln='echo "zip -er archive.zip folder-to-zip"' 
+
+# on production server
+#
+if [ -d /var/wingolfsplattform ]
+then
+  alias cdw='cd /var/wingolfsplattform'
+  alias cdo='cd /var/your_platform_ops'
+
+  alias console='cdw && echo "WINGOLFSPLATTFORM PRODUCTION CONSOLE" && su wingolfsplattform -c ". /home/wingolfsplattform/.bashrc && cd /var/wingolfsplattform && bundle exec rails console"'
+  
+  export RAILS_ENV=production
+fi
