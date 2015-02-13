@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+#
+# This script assimilates the useer's account to adapt the dot files
+# of this repository.
+#
+# Use this for virgin user accounts you wish to load the dot files on.
+#
+# Usage:
+#
+#   cd
+#   git clone https://github.com/fiedl/dotfiles.git .dotfiles
+#   .dotfiles/bin/assimilate.rb
+#
+# Requirements
+#   * Ruby
+#   * Ruby gems: colored
+#   * Arch Linux or Mac OS
+#
+
+require_relative 'lib/log'
+require_relative 'lib/shell'
+
+def arch?
+  RUBY_PLATFORM == "x86_64-linux" and File.exist? "/usr/bin/pacman"
+end
+
+def install_packages(*packages)
+  if arch?
+    shell "sudo pacman -S --needed --noconfirm #{packages.join(" ")}"
+  end
+end
+
+def play_intro
+  install_packages :figlet, :wget, :mplayer
+  shell "figlet -c Assimilation in Progress ..."
+  shell "wget www.moviesoundclips.net/movies1/startrek8/borg.mp3 -O - |mplayer -cache 8192 - &"
+end
+
+play_intro

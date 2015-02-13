@@ -51,10 +51,15 @@ then
   curl -L http://install.ohmyz.sh | sh
 fi
 
-source $ZSH/oh-my-zsh.sh
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
+
+include $ZSH/oh-my-zsh.sh
+[[ -f "/usr/share/oh-my-zsh/oh-my-zsh.sh" ]] && ZSH="/usr/share/oh-my-zsh/" && source /usr/share/oh-my-zsh/oh-my-zsh.sh
 
 # iterm customizations
-source bin/iterm2.zsh
+include bin/iterm2.zsh
 [ -f .iterm2_shell_integration.zsh ] && source .iterm2_shell_integration.zsh
 
 # editor
@@ -71,20 +76,24 @@ export EDITOR=emacs
 cdl() { cd "$@"; ls; }
 gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
 # alias emacs='emacs -nw'
-alias e='mate'
+
+[[ -f `which mate` ]] && alias e='mate'
+[[ -f `which emacs` ]] && alias e='emacs'
+
 alias f='ffind'
 unalias g
 function g () { grep --exclude-dir log --exclude-dir tmp --exclude-dir .yardoc --exclude-dir doc --recursive --line-number "$*" . }  # --ignore-case
 alias ka='pkill -f'
 
 # directory aliases
-if [ -d /Users/fiedl ]
+if [ -d $HOME/rails ]
 then
-  alias cdw='cd /Users/fiedl/rails/wingolfsplattform'
-  alias cdy='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform'
-  alias cdo='cd /Users/fiedl/rails/your_platform_ops'
-  alias cda='cd /Users/fiedl/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/'
-  alias cdm='cd /Users/fiedl/rails/my_platform'
+  alias cdw="cd $HOME/rails/wingolfsplattform"
+  alias cdy="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform"
+  alias cdo="cd $HOME/rails/your_platform_ops"
+  alias cda="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/"
+  alias cdm='cd $HOME/rails/my_platform'
+  alias production='git co production && git merge master && git co master'
 fi
 
 # rails shortcuts
@@ -94,7 +103,6 @@ alias bi='bundle install'
 alias bu='bundle update'
 alias gis='git status'
 alias pry='be pry -r ./config/environment'
-alias production='git co production && git merge master && git co master'
 
 # documentation shortcut: generates documentation and opens it in the browser
 alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && chromium-browser doc/index.html'
@@ -134,7 +142,6 @@ fi
 
 # uni ssh tunnel
 alias uni-ssh='ssh sfiedlschuster@pi2158.physik.uni-erlangen.de -L 8080:proxy.rrze.uni-erlangen.de:80'
-
 
 # stuff from moo
 # https://github.com/idk/zsh/blob/master/.zshrc
