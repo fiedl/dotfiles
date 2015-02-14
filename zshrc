@@ -88,8 +88,8 @@ cdl() { cd "$@"; ls; }
 gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
 # alias emacs='emacs -nw'
 
-[[ -f `which mate` ]] && alias e='mate'
 [[ -f `which emacs` ]] && alias e='emacs'
+[[ -f `which mate` ]] && alias e='mate'
 
 alias f='ffind'
 unalias g
