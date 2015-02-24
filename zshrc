@@ -73,10 +73,13 @@ export EDITOR=emacs
 # From: https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/tjkirch.zsh-theme
 #       https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme
 #
+function user_name_prompt_color {
+	if [ $UID -eq 0 ]; then echo "%{$fg_bold[red]%}"; else echo "%{$fg[magenta]%}"; fi
+}
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 PROMPT='%(?, ,%{$fg[red]%}FAIL: $?%{$reset_color%}
 )
-%{$fg[green]%}[%*] %{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
+%{$fg[green]%}[%*] %_$(user_name_prompt_color)%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
 ${ret_status} %{$reset_color%}'
 RPROMPT=''
 
