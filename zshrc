@@ -44,7 +44,7 @@ DISABLE_CORRECTION="true"
 plugins=(git bundler)
 
 # rbenv (must go before oh-my-zsh!)
-export PATH=$RBENV_ROOT/bin:/opt/rbenv/bin/rbenv:$PATH
+export PATH=$RBENV_ROOT/bin:/opt/rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
 if [ ! -d $ZSH ]
