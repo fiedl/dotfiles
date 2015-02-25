@@ -105,6 +105,7 @@ then
   alias cdw="cd $HOME/rails/wingolfsplattform"
   alias cdy="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform"
   alias cdo="cd $HOME/rails/your_platform_ops"
+  alias cdp="cd $HOME/rails/platforms_ops"
   alias cda="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/"
   alias cdm='cd $HOME/rails/my_platform'
   alias production='git co production && git merge master && git co master'
@@ -178,6 +179,7 @@ if [ -d /var/wingolfsplattform ]
 then
   alias cdw='cd /var/wingolfsplattform'
   alias cdo='cd /var/your_platform_ops'
+  alias cdp='cd /var/your_platform_ops/ops'
 
   alias console='cdw && echo "WINGOLFSPLATTFORM PRODUCTION CONSOLE" && su wingolfsplattform -c ". /home/wingolfsplattform/.bashrc && cd /var/wingolfsplattform && bundle exec rails console"'
   
