@@ -87,7 +87,7 @@ RPROMPT=''
 # sudo scutil --set HostName fiedl-mbp
 
 # general aliases
-cdl() { cd "$@"; ls; }
+# cdl() { cd "$@"; ls; }
 gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
 # alias emacs='emacs -nw'
 
@@ -106,6 +106,7 @@ then
   alias cdy="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform"
   alias cdo="cd $HOME/rails/your_platform_ops"
   alias cdp="cd $HOME/rails/platforms_ops"
+  alias cdl="cd $HOME/rails/lichtplattform"
   alias cda="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/"
   alias cdm='cd $HOME/rails/my_platform'
   alias production='git co production && git merge master && git co master'
@@ -184,4 +185,9 @@ then
   alias console='cdw && echo "WINGOLFSPLATTFORM PRODUCTION CONSOLE" && su wingolfsplattform -c ". /home/wingolfsplattform/.bashrc && cd /var/wingolfsplattform && bundle exec rails console"'
   
   export RAILS_ENV=production
+fi
+if [ -d /var/lichtplattform ]
+then
+  alias cdl='cd /var/lichtplattform'
+  alias cdo='cd /var/lichtplattform_ops'
 fi
