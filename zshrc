@@ -103,12 +103,12 @@ alias ka='pkill -f'
 if [ -d $HOME/rails ]
 then
   alias cdw="cd $HOME/rails/wingolfsplattform"
-  alias cdy="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform"
+  alias cdy="cd $HOME/rails/your_platform"
   alias cdo="cd $HOME/rails/your_platform_ops"
   alias cdp="cd $HOME/rails/platforms_ops"
   alias cdl="cd $HOME/rails/lichtplattform"
   alias cda="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/"
-  alias cdm='cd $HOME/rails/my_platform'
+  alias cdm='cd $HOME/rails/your_platform/demo_app/my_platform'
   alias production='git co production && git merge master && git co master'
 fi
 
