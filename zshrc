@@ -189,5 +189,7 @@ fi
 if [ -d /var/lichtplattform ]
 then
   alias cdl='cd /var/lichtplattform'
+fi
+if [ -d /var/lichtplattform_ops ]; then
   alias cdo='cd /var/lichtplattform_ops'
 fi
