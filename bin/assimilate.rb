@@ -109,3 +109,4 @@ install_fun
 install_ruby
 install_multimedia
 install_tools
+# TODO: install_keyboard_layout if mac?

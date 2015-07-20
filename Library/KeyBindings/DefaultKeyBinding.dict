@@ -1,0 +1,21 @@
+{
+"\UF729" = "moveToBeginningOfLine:"; /* pos1 */
+"^\UF729" = "moveToBeginningOfDocument:"; /* crtl + pos1 */
+"$\UF729"  = "moveToBeginningOfLineAndModifySelection:";
+"\UF72b" = "moveToEndOfLine:"; /* end */
+"^\UF72B" = "moveToEndOfDocument:"; /* ctrl + end */
+"$\UF72B"  = "moveToEndOfLineAndModifySelection:";
+"\UF72C"   = "pageUp:";
+"\UF72D"   = "pageDown:";
+"~Ü" = ("insertText:", "[");
+"~*" = ("insertText:", "]");
+"~ü" = ("insertText:", "{");
+"~+" = ("insertText:", "}");
+"~<" = ("insertText:", "|");
+"~p" = ("insertText:", "\U005C");
+"~P" = ("insertText:", "\U005C");
+"~'" = ("insertText:", "|");
+"^t" = ("insertText:", " "); /* thin space */
+"^~ " = ("insertText:", " "); /* thin space */
+"~ " = ("insertText:", " "); /* normal space */
+}
