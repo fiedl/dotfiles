@@ -41,7 +41,7 @@ export UPDATE_ZSH_DAYS=1
 # ~/.oh-my-zsh/plugins/*
 # ~/.zsh/oh-my-zsh-customization/plugins/*
 # ZSH_PLUGINS is defined in ~/.zshenv
-plugins=(git bundler editor auto-update highlight fiedl icecube install plattform keyboard welcome)
+plugins=(git bundler editor auto-update highlight fiedl icecube gnuplot install plattform latex powerlevel lcars)
 
 # rbenv (must go before oh-my-zsh!)
 export PATH=$RBENV_ROOT/bin:/opt/rbenv/bin:/opt/rbenv/shims:$PATH
@@ -115,3 +115,8 @@ monitor() {
 #  include "bin/anybar.zsh"
 #  ANYBAR_STARTED=true
 #fi
+
+which colorls && alias ls='colorls'
+alias ll='ls -l'
+alias la='ls -l -a'
+
