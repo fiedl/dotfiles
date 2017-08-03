@@ -1,4 +1,5 @@
-#
+#!/usr/bin/env ruby
+
 # This script moves and resizes the current window to the following positions
 # in turn:
 #
@@ -32,7 +33,7 @@
 #     @window_id = window_id
 #   end
 # end
-# 
+#
 # class CurrentWindow < Window
 #   def initialize
 #     super Window.current_window_id
@@ -45,10 +46,10 @@ def screen_width
   # Then, just assume 2560.
   #
   # "0  * DG: 17920x1440  VP: 0,0  WA: 0,24 4480x1416  Workspace 1"
-  [`wmctrl -d`.match(/(\d{4})x(\d{4})  Workspace/)[1].to_i, 2560].min
+  [`wmctrl -d`.match(/(\d{4})x(\d{4})  (Workspace|N\/A)/)[1].to_i, 2560].min
 end
 def screen_height
-  `wmctrl -d`.match(/(\d{4})x(\d{4})  Workspace/)[2].to_i
+  `wmctrl -d`.match(/(\d{4})x(\d{4})  (Workspace|N\/A)/)[2].to_i
 end
 
 def current_window_id
@@ -62,19 +63,27 @@ end
 def move_window_to_preset(window_id, preset_id)
   case preset_id
   when 1
-    move_window window_id,   0,                    0, screen_width / 3, screen_height
+    move_window window_id,   x_zero_coordinate,             0, screen_width * 0.61803398875, screen_height
   when 2
-    move_window window_id,   screen_width / 3,     0, screen_width / 3, screen_height
-  when 3
-    move_window window_id,   screen_width / 3 * 2, 0, screen_width / 3, screen_height
-  when 4
-    move_window window_id,   0,                    0, screen_width * 0.61803398875, screen_height
-  when 5
     move_window window_id,   screen_width * 0.61803398875,  0, screen_width * (1-0.61803398875), screen_height
+  when 3
+    move_window window_id,   0,                    0, screen_width / 3, screen_height
+  when 4
+    move_window window_id,   screen_width / 3,     0, screen_width / 3, screen_height
+  when 5
+    move_window window_id,   screen_width / 3 * 2, 0, screen_width / 3, screen_height
   end
 end
 def number_of_presets
-  5
+  if screen_width > 2000
+    5
+  else
+    2
+  end
+end
+
+def x_zero_coordinate
+  0
 end
 
 def last_preset
@@ -91,5 +100,3 @@ preset = 1 if preset > number_of_presets
 store_last_preset preset
 
 move_window_to_preset current_window_id, preset
-
-
