@@ -16,6 +16,7 @@
 #   * Ruby gems: colored
 #   * Arch Linux or Mac OS
 #   * Arch Packages: yaourt, pacaur
+#   * Linux Packages: inxi
 #
 
 require_relative 'lib/log'
@@ -23,6 +24,12 @@ require_relative 'lib/shell'
 
 def arch?
   RUBY_PLATFORM == "x86_64-linux" and File.exist? "/usr/bin/pacman"
+end
+def debian?
+  RUBY_PLATFORM == "x86_64-linux" and File.exist? "/usr/bin/apt-get"
+end
+def ubuntu?
+  @ubuntu ||= `inxi -S`.to_s.include?("Ubuntu")
 end
 
 def install_packages(*packages)
@@ -106,7 +113,7 @@ end
 play_intro
 install_zsh
 install_fun
-install_ruby
+#install_ruby
 install_multimedia
 install_tools
 # TODO: install_keyboard_layout if mac?
