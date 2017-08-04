@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM="$HOME/.zsh/oh-my-zsh-customization"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="tjkirch"   # "robbyrussell"
+ZSH_THEME="fiedl"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -14,50 +15,44 @@ ZSH_THEME="tjkirch"   # "robbyrussell"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+# Auto-install ~/.oh-my-zsh if missing.
+if [ ! -d $ZSH ]; then
+  curl -L http://install.ohmyz.sh | sh
+fi
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Auto-install ~/.zsh if missing.
+if [ ! -d ~/.zsh ]; then
+  git clone git@github.com:fiedl/dot-zsh.git ~/.zsh
+fi
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git brew bundler macports osx )
-plugins=(git bundler)
+# Auto-updating ~/.oh-my-zsh as well as ~/.zsh
+# requires to use another upgrade script.
+# Therefore, deactivate the oh-my-zsh-only one.
+# The rest is done by the `auto-update` plugin.
+export DISABLE_AUTO_UPDATE="true"
+export DISABLE_UPDATE_PROMPT="false"
+export UPDATE_ZSH_DAYS=1
+
+# Which plugins would you like to load?
+# Plugins can be found in:
+# ~/.oh-my-zsh/plugins/*
+# ~/.zsh/oh-my-zsh-customization/plugins/*
+# ZSH_PLUGINS is defined in ~/.zshenv
+plugins=(git bundler editor auto-update highlight fiedl icecube gnuplot install plattform latex powerlevel lcars)
 
 # rbenv (must go before oh-my-zsh!)
 export PATH=$RBENV_ROOT/bin:/opt/rbenv/bin:/opt/rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
-if [ ! -d $ZSH ]
-then
-  curl -L http://install.ohmyz.sh | sh
-fi
 
 include () {
     [[ -f "$1" ]] && source "$1"
 }
 
 include $ZSH/oh-my-zsh.sh
-[[ -f "/usr/share/oh-my-zsh/oh-my-zsh.sh" ]] && ZSH="/usr/share/oh-my-zsh/" && source /usr/share/oh-my-zsh/oh-my-zsh.sh
 
 # iterm customizations
 include bin/iterm2.zsh
@@ -66,86 +61,14 @@ include bin/iterm2.zsh
 # editor
 export EDITOR=emacs
 
-# PS1
-#PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m(fiedl-mbp)%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
-#%_$(prompt_char) "
-
-# From: https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/tjkirch.zsh-theme
-#       https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme
-#
-function user_name_prompt_color {
-	if [ $UID -eq 0 ]; then echo "%{$fg_bold[red]%}"; else echo "%{$fg[magenta]%}"; fi
-}
-local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
-PROMPT='%(?, ,%{$fg[red]%}FAIL: $?%{$reset_color%}
-)
-%{$fg[green]%}[%*] %_$(user_name_prompt_color)%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%}$(git_prompt_info)
-${ret_status} %{$reset_color%}'
-RPROMPT=''
 
 # # Set the hostname on Mac OS
 # sudo scutil --set HostName fiedl-mbp
 
-# general aliases
+
 # cdl() { cd "$@"; ls; }
-gre() { grep --recursive --regexp="$@" --exclude-dir=log --exclude-dir=coverage --exclude-dir=neo4j --exclude-dir=tmp --exclude-dir=.git . ; }
 # alias emacs='emacs -nw'
 
-[[ -f `which emacs` ]] && alias e='emacs'
-[[ -f `which mate` ]] && alias e='mate'
-
-alias f='ffind'
-unalias g
-function g () { grep --exclude-dir log --exclude-dir tmp --exclude-dir .yardoc --exclude-dir doc --recursive --line-number "$*" . }  # --ignore-case
-alias ka='pkill -f'
-
-# directory aliases
-if [ -d $HOME/rails ]
-then
-  alias cdw="cd $HOME/rails/wingolfsplattform"
-  alias cdy="cd $HOME/rails/your_platform"
-  alias cdo="cd $HOME/rails/your_platform_ops"
-  alias cdp="cd $HOME/rails/platforms_ops"
-  alias cdl="cd $HOME/rails/lichtplattform"
-  alias cda="cd $HOME/rails/wingolfsplattform/vendor/engines/your_platform/app/assets/javascripts/"
-  alias cdm='cd $HOME/rails/your_platform/demo_app/my_platform'
-  alias production='git co production && git merge master && git co master'
-fi
-
-# rails shortcuts
-alias b='bundle'
-alias be='bundle exec'
-alias bi='bundle install'
-alias bu='bundle update'
-alias gis='git status'
-alias pry='be pry -r ./config/environment'
-
-# documentation shortcut: generates documentation and opens it in the browser
-alias doc='cdw && yardoc && chromium-browser doc/index.html && cdy && yardoc && chromium-browser doc/index.html'
-
-# icecube
-if [ -d /Users/fiedl/icecube ]
-then
-  alias ice-port="$I3_PORTS/bin/port"
-  # alias ice-cmake="$I3_PORTS/bin/cmake"
-  alias shovel="$SIM/../build/bin/steamshovel"
-  alias clsim-make="cd $SIM/clsim && make -j 4 && cd -"
-  alias cdc="cd /Users/fiedl/icecube/clsim"
-  
-  alias icesim="$SIM/env-shell.sh"
-  alias icesimfix="source ~/icecube/geant4fix.sh"
-  alias icedoc="open $SIM/../documentation/html/index.html && cd $SIM/../src && doxygen sim.doxygen"
-  alias nb='ipython notebook --pylab=inline'
-  
-  alias ci="./zsh_to_markdown *.sh && git add . && git commit -m"
-  
-  # python
-  # export PYTHONPATH=/usr/local/lib/python3.3:$PYTHONPATH
-  # alias ipy='cd ~/diplomarbeit/Notebooks && ipython3 notebook --pylab=inline'
-  
-  # iruby
-  alias iruby-notebook=' iruby notebook --pylab=inline'
-fi
 
 # Musik
 if [ -f /Applications/VLC.app/Contents/MacOS/VLC ]
@@ -156,40 +79,44 @@ then
   alias classicfm='open -a iTunes -g http://media-ice.musicradio.com/ClassicFMMP3.m3u'
 fi
 
-# uni ssh tunnel
+# ssh tunnel
 alias uni-ssh='ssh sfiedlschuster@pi2158.physik.uni-erlangen.de -L 8080:proxy.rrze.uni-erlangen.de:80'
+alias uniproxy='ssh snaasoer@dialog.rrze.uni-erlangen.de -L 8080:proxy.rrze.uni-erlangen.de:80'
+alias haus-ip='curl "http://fiedlschuster.de/ip/?key=wingolf"'
+alias haus-ssh='ssh `haus-ip` -p 50223'
 
 # stuff from moo
 # https://github.com/idk/zsh/blob/master/.zshrc
-# 
-alias matrix='cmatrix -C magenta'
-alias random='echo $[RANDOM % 30 + 1] && read \?"I am waiting for you to press [Enter] before I continue." && echo $[RANDOM % 2 + 1] && echo "Have fun!"'                                                         
-
-# identify the computer on login
-figlet $(hostname)
+#
+alias random='echo $[RANDOM % 30 + 1] && read \?"I am waiting for you to press [Enter] before I continue." && echo $[RANDOM % 2 + 1] && echo "Have fun!"'
 
 # added by travis gem
 [ -f /Users/fiedl/.travis/travis.sh ] && source /Users/fiedl/.travis/travis.sh
 
 # zip verschlüsseln
-[ -d /Users/fiedl ] && alias zip-verschlüsseln='echo "zip -er archive.zip folder-to-zip"' 
+[ -d /Users/fiedl ] && alias zip-verschlüsseln='echo "zip -er archive.zip folder-to-zip"'
 
-# on production server
-#
-if [ -d /var/wingolfsplattform ]
-then
-  alias cdw='cd /var/wingolfsplattform'
-  alias cdo='cd /var/your_platform_ops'
-  alias cdp='cd /var/your_platform_ops/ops'
+alias festplattenbelegung='baobab'
+alias grandperspective='festplattenbelegung'
 
-  alias console='cdw && echo "WINGOLFSPLATTFORM PRODUCTION CONSOLE" && su wingolfsplattform -c ". /home/wingolfsplattform/.bashrc && cd /var/wingolfsplattform && bundle exec rails console"'
-  
-  export RAILS_ENV=production
-fi
-if [ -d /var/lichtplattform ]
-then
-  alias cdl='cd /var/lichtplattform'
-fi
-if [ -d /var/lichtplattform_ops ]; then
-  alias cdo='cd /var/lichtplattform_ops'
-fi
+# Some tab color settings.
+include bin/iterm2_helper.sh
+
+alias reload='source ~/.zshrc'
+alias hosts='nmap -sP -T5 192.168.0.0/24 |grep report |awk '\''{print $5, $6}'\'''
+
+monitor() {
+  include "bin/anybar.zsh"
+}
+
+## Start Anybar Server Monitor
+##
+#if [ ANYBAR_STARTED != true ]; then
+#  include "bin/anybar.zsh"
+#  ANYBAR_STARTED=true
+#fi
+
+which colorls && alias ls='colorls'
+alias ll='ls -l'
+alias la='ls -l -a'
+
