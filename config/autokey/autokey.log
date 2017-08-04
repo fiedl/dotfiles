@@ -1,0 +1,291 @@
+2017-08-04 21:44:07,911 INFO - root - Initialising application
+2017-08-04 21:44:07,916 INFO - root - Initialise global hotkeys
+2017-08-04 21:44:07,917 INFO - config-manager - No configuration found - creating new one
+2017-08-04 21:44:07,919 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:44:07,919 INFO - config-manager - Persisting configuration
+2017-08-04 21:44:07,919 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 21:44:07,919 INFO - service - Starting service
+2017-08-04 21:44:07,957 INFO - interface - XRecord interface thread starting
+2017-08-04 21:44:07,957 INFO - service - Service now marked as running
+2017-08-04 21:44:07,966 INFO - root - Displaying configuration window
+2017-08-04 21:44:08,198 INFO - root - Entering main()
+2017-08-04 21:46:11,142 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:46:46,830 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:46:46,830 INFO - config-manager - Persisting configuration
+2017-08-04 21:46:46,831 INFO - config-manager - Backing up existing config file
+2017-08-04 21:46:46,831 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 21:47:04,147 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:47:27,531 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:47:44,271 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:47:44,271 INFO - config-manager - Persisting configuration
+2017-08-04 21:47:44,272 INFO - config-manager - Backing up existing config file
+2017-08-04 21:47:44,272 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 21:48:01,618 INFO - root - Shutting down
+2017-08-04 21:48:01,618 INFO - service - Service shutting down
+2017-08-04 21:48:02,505 INFO - config-manager - Persisting configuration
+2017-08-04 21:48:02,505 INFO - config-manager - Backing up existing config file
+2017-08-04 21:48:02,508 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 21:48:03,510 INFO - inotify - Shutting down file monitor
+2017-08-04 21:48:07,460 INFO - root - Initialising application
+2017-08-04 21:48:07,465 INFO - root - Initialise global hotkeys
+2017-08-04 21:48:07,465 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 21:48:07,471 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:48:07,471 INFO - config-manager - Successfully loaded configuration
+2017-08-04 21:48:07,471 INFO - service - Starting service
+2017-08-04 21:48:07,520 INFO - interface - XRecord interface thread starting
+2017-08-04 21:48:07,520 INFO - service - Service now marked as running
+2017-08-04 21:48:07,529 INFO - root - Displaying configuration window
+2017-08-04 21:48:07,662 INFO - root - Entering main()
+2017-08-04 21:48:59,342 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:49:10,047 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:49:10,048 INFO - config-manager - Persisting configuration
+2017-08-04 21:49:10,048 INFO - config-manager - Backing up existing config file
+2017-08-04 21:49:10,049 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 21:49:24,683 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:49:50,197 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:50:05,843 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:50:05,844 ERROR - service - Script error
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/autokey/service.py", line 460, in execute
+    exec(script.code, scope)
+  File "<string>", line 1
+    nter script code
+              ^
+SyntaxError: invalid syntax
+2017-08-04 21:50:41,225 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:51:09,809 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:51:12,611 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:51:15,824 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:51:24,305 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:51:28,569 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:51:35,159 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:52:44,479 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:52:49,136 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:52:49,483 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:52:49,818 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:52:52,818 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:52:59,588 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:53:30,409 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:53:31,404 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:53:32,389 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:53:55,331 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:53:55,354 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:54:11,377 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:54:19,705 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:54:19,725 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:54:21,180 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:54:55,301 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:54:55,596 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:55:02,877 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:55:02,897 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:55:13,011 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:55:13,189 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:55:21,217 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:55:21,229 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 21:55:35,445 WARNING - config-manager - No action taken for create/update event at /home/fiedl/.dotfiles/autokey/.#README.md
+2017-08-04 21:56:56,475 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:56:57,858 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:56:58,595 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:57:00,147 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:57:22,717 WARNING - config-manager - No action taken for create/update event at /home/fiedl/.dotfiles/autokey/#README.md#
+2017-08-04 21:57:23,218 WARNING - config-manager - No action taken for create/update event at /home/fiedl/.dotfiles/autokey/#README.md#
+2017-08-04 21:58:03,899 WARNING - config-manager - No action taken for create/update event at /home/fiedl/.dotfiles/autokey/README.md
+2017-08-04 21:58:04,400 WARNING - config-manager - No action taken for create/update event at /home/fiedl/.dotfiles/autokey/README.md
+2017-08-04 21:58:04,901 WARNING - config-manager - No action taken for delete event at /home/fiedl/.dotfiles/autokey/.#README.md
+2017-08-04 21:58:05,402 WARNING - config-manager - No action taken for delete event at /home/fiedl/.dotfiles/autokey/#README.md#
+2017-08-04 21:58:35,345 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:58:37,377 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 21:59:44,946 ERROR - dbus.proxies - Introspect error on :1.102:/AppService: dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+2017-08-04 21:59:54,463 ERROR - dbus.proxies - Introspect error on :1.102:/AppService: dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+2017-08-04 22:00:09,972 ERROR - root - Error communicating with Dbus service
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/autokey/gtkapp.py", line 107, in __verifyNotRunning
+    dbusService.show_configure(dbus_interface = "org.autokey.Service")
+  File "/usr/lib/python3.6/site-packages/dbus/proxies.py", line 70, in __call__
+    return self._proxy_method(*args, **keywords)
+  File "/usr/lib/python3.6/site-packages/dbus/proxies.py", line 145, in __call__
+    **keywords)
+  File "/usr/lib/python3.6/site-packages/dbus/connection.py", line 651, in call_blocking
+    message, timeout)
+dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+2017-08-04 22:00:19,479 ERROR - root - Error communicating with Dbus service
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/autokey/gtkapp.py", line 107, in __verifyNotRunning
+    dbusService.show_configure(dbus_interface = "org.autokey.Service")
+  File "/usr/lib/python3.6/site-packages/dbus/proxies.py", line 70, in __call__
+    return self._proxy_method(*args, **keywords)
+  File "/usr/lib/python3.6/site-packages/dbus/proxies.py", line 145, in __call__
+    **keywords)
+  File "/usr/lib/python3.6/site-packages/dbus/connection.py", line 651, in call_blocking
+    message, timeout)
+dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+2017-08-04 22:00:23,713 ERROR - dbus.proxies - Introspect error on :1.102:/AppService: dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
+2017-08-04 22:00:38,082 INFO - root - Initialising application
+2017-08-04 22:00:38,087 INFO - root - Initialise global hotkeys
+2017-08-04 22:00:38,087 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 22:00:38,090 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:00:38,091 INFO - config-manager - Successfully loaded configuration
+2017-08-04 22:00:38,091 INFO - service - Starting service
+2017-08-04 22:00:38,169 INFO - interface - XRecord interface thread starting
+2017-08-04 22:00:38,169 INFO - service - Service now marked as running
+2017-08-04 22:00:38,177 INFO - root - Entering main()
+2017-08-04 22:00:48,958 INFO - root - Displaying configuration window
+2017-08-04 22:01:29,658 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:01:30,661 INFO - config-manager - Reloading global configuration
+2017-08-04 22:01:30,661 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:01:30,662 ERROR - pyinotify - add_watch: cannot watch /home/fiedl/autokey/.dotfiles WD=-1, Errno=Datei oder Verzeichnis nicht gefunden (ENOENT)
+2017-08-04 22:01:30,662 INFO - config-manager - Successfully reloaded global configuration
+2017-08-04 22:01:33,370 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:01:33,370 INFO - config-manager - Persisting configuration
+2017-08-04 22:01:33,370 INFO - config-manager - Backing up existing config file
+2017-08-04 22:01:33,371 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:01:37,521 INFO - root - Shutting down
+2017-08-04 22:01:37,522 INFO - service - Service shutting down
+2017-08-04 22:01:38,354 INFO - config-manager - Persisting configuration
+2017-08-04 22:01:38,354 INFO - config-manager - Backing up existing config file
+2017-08-04 22:01:38,355 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:01:38,523 INFO - inotify - Shutting down file monitor
+2017-08-04 22:01:45,064 INFO - root - Initialising application
+2017-08-04 22:01:45,070 INFO - root - Initialise global hotkeys
+2017-08-04 22:01:45,071 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 22:01:45,074 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:01:45,075 ERROR - pyinotify - add_watch: cannot watch /home/fiedl/autokey/.dotfiles WD=-1, Errno=Datei oder Verzeichnis nicht gefunden (ENOENT)
+2017-08-04 22:01:45,075 INFO - config-manager - Successfully loaded configuration
+2017-08-04 22:01:45,075 INFO - service - Starting service
+2017-08-04 22:01:45,156 INFO - interface - XRecord interface thread starting
+2017-08-04 22:01:45,157 INFO - service - Service now marked as running
+2017-08-04 22:01:45,165 INFO - root - Displaying configuration window
+2017-08-04 22:01:45,290 INFO - root - Entering main()
+2017-08-04 22:01:55,040 INFO - root - Shutting down
+2017-08-04 22:01:55,040 INFO - service - Service shutting down
+2017-08-04 22:01:55,271 INFO - config-manager - Persisting configuration
+2017-08-04 22:01:55,272 INFO - config-manager - Backing up existing config file
+2017-08-04 22:01:55,272 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:01:55,542 INFO - inotify - Shutting down file monitor
+2017-08-04 22:02:12,087 INFO - root - Initialising application
+2017-08-04 22:02:12,092 INFO - root - Initialise global hotkeys
+2017-08-04 22:02:12,093 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 22:02:12,095 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:02:12,096 INFO - config-manager - Successfully loaded configuration
+2017-08-04 22:02:12,096 INFO - service - Starting service
+2017-08-04 22:02:12,169 INFO - interface - XRecord interface thread starting
+2017-08-04 22:02:12,169 INFO - service - Service now marked as running
+2017-08-04 22:02:12,176 INFO - root - Displaying configuration window
+2017-08-04 22:02:12,300 INFO - root - Entering main()
+2017-08-04 22:04:46,935 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:04:57,639 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:05:01,158 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:01,660 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:02,162 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:02,663 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:03,165 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:03,666 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:04,167 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:04,669 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:05,170 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:05,671 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:06,172 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:06,674 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:07,175 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:07,676 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:05:08,177 WARNING - config-manager - No action taken for delete event at /home/fiedl/.dotfiles/autokey/README.md
+2017-08-04 22:05:08,679 WARNING - config-manager - No action taken for create/update event at /home/fiedl/.config/autokey/data/shortcuts/README.md
+2017-08-04 22:05:59,628 INFO - root - Shutting down
+2017-08-04 22:05:59,629 INFO - service - Service shutting down
+2017-08-04 22:05:59,776 INFO - config-manager - Persisting configuration
+2017-08-04 22:05:59,776 INFO - config-manager - Backing up existing config file
+2017-08-04 22:05:59,777 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:06:00,130 INFO - inotify - Shutting down file monitor
+2017-08-04 22:06:03,628 INFO - root - Initialising application
+2017-08-04 22:06:03,633 INFO - root - Initialise global hotkeys
+2017-08-04 22:06:03,633 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 22:06:03,635 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:06:03,636 ERROR - pyinotify - add_watch: cannot watch /home/fiedl/.dotfiles/autokey WD=-1, Errno=Datei oder Verzeichnis nicht gefunden (ENOENT)
+2017-08-04 22:06:03,636 INFO - config-manager - Successfully loaded configuration
+2017-08-04 22:06:03,636 INFO - service - Starting service
+2017-08-04 22:06:03,673 INFO - interface - XRecord interface thread starting
+2017-08-04 22:06:03,674 INFO - service - Service now marked as running
+2017-08-04 22:06:03,680 INFO - root - Displaying configuration window
+2017-08-04 22:06:03,802 INFO - root - Entering main()
+2017-08-04 22:06:11,686 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:06:11,686 INFO - config-manager - Persisting configuration
+2017-08-04 22:06:11,686 INFO - config-manager - Backing up existing config file
+2017-08-04 22:06:11,688 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:07:07,135 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:07:14,002 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:07:18,918 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:07:22,250 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:07:26,972 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:07:31,332 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:07:37,220 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:07:37,228 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:08:27,628 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:08:27,641 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:08:27,641 INFO - config-manager - Persisting configuration
+2017-08-04 22:08:27,642 INFO - config-manager - Backing up existing config file
+2017-08-04 22:08:27,642 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:08:43,275 INFO - root - Displaying configuration window
+2017-08-04 22:12:29,164 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:12:32,969 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:15:28,109 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:17:18,570 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:17:21,325 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:17:28,557 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:18:59,203 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:18:59,204 INFO - config-manager - Persisting configuration
+2017-08-04 22:18:59,205 INFO - config-manager - Backing up existing config file
+2017-08-04 22:18:59,206 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:19:00,869 INFO - root - Shutting down
+2017-08-04 22:19:00,870 INFO - service - Service shutting down
+2017-08-04 22:19:01,847 INFO - config-manager - Persisting configuration
+2017-08-04 22:19:01,848 INFO - config-manager - Backing up existing config file
+2017-08-04 22:19:01,849 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:19:02,851 INFO - inotify - Shutting down file monitor
+2017-08-04 22:19:05,275 INFO - root - Initialising application
+2017-08-04 22:19:05,280 INFO - root - Initialise global hotkeys
+2017-08-04 22:19:05,280 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 22:19:05,283 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:19:05,283 INFO - config-manager - Successfully loaded configuration
+2017-08-04 22:19:05,283 INFO - service - Starting service
+2017-08-04 22:19:05,320 INFO - interface - XRecord interface thread starting
+2017-08-04 22:19:05,322 INFO - service - Service now marked as running
+2017-08-04 22:19:05,332 INFO - root - Displaying configuration window
+2017-08-04 22:19:05,494 INFO - root - Entering main()
+2017-08-04 22:19:12,901 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:21:39,723 INFO - root - Initialising application
+2017-08-04 22:21:39,729 INFO - root - Initialise global hotkeys
+2017-08-04 22:21:39,729 INFO - config-manager - Loading config from existing file: /home/fiedl/.config/autokey/autokey.json
+2017-08-04 22:21:39,754 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:21:39,754 INFO - config-manager - Successfully loaded configuration
+2017-08-04 22:21:39,754 INFO - service - Starting service
+2017-08-04 22:21:39,809 INFO - interface - XRecord interface thread starting
+2017-08-04 22:21:39,810 INFO - service - Service now marked as running
+2017-08-04 22:21:39,863 INFO - root - Entering main()
+2017-08-04 22:21:49,237 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:21:52,402 INFO - root - Displaying configuration window
+2017-08-04 22:22:10,054 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:26,711 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:29,366 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:29,830 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:42,031 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:22:44,518 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:50,536 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:50,832 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:22:58,045 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:10,077 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:10,493 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:16,784 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:23:25,525 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:26,447 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:27,198 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:29,504 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:23:29,527 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:29:26,365 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:34:28,217 INFO - config-manager - Configuration changed - rebuilding in-memory structures
+2017-08-04 22:34:28,217 INFO - config-manager - Persisting configuration
+2017-08-04 22:34:28,218 INFO - config-manager - Backing up existing config file
+2017-08-04 22:34:28,218 INFO - config-manager - Finished persisting configuration - no errors
+2017-08-04 22:37:49,064 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:38:33,439 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:39:36,016 INFO - service - Matched hotkey phrase/script with prompt=False
+2017-08-04 22:39:40,342 INFO - service - Matched hotkey phrase/script with prompt=False
