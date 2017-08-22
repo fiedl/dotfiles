@@ -116,7 +116,7 @@ monitor() {
 #  ANYBAR_STARTED=true
 #fi
 
-which colorls && alias ls='colorls'
+which colorls > /dev/null && alias ls='colorls'
 alias ll='ls -l'
 alias la='ls -l -a'
 
