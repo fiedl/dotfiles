@@ -164,3 +164,6 @@ export PATH="$HOME/code/yabai/bin:$PATH"
 
 alias bat='batcat' # see `aptitude show bat`
 
+alias remove_whitespace= "export LC_CTYPE=C
+export LANG=C
+find . -not \( -name .svn -prune -o -name .git -prune -o -name node_modules -prune \) -type f -print0 | perl -0ne 'print if -T' | xargs -0 sed -Ei 's/[[:blank:]]+$//'"
