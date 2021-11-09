@@ -89,6 +89,10 @@ alias haus-ssh='ssh `haus-ip` -p 50223'
 # https://github.com/idk/zsh/blob/master/.zshrc
 #
 alias random='echo $[RANDOM % 30 + 1] && read \?"I am waiting for you to press [Enter] before I continue." && echo $[RANDOM % 2 + 1] && echo "Have fun!"'
+alias r1="echo $[RANDOM % 30 + 1] && echo $[RANDOM % 2 + 1]"
+alias r3='echo $[RANDOM % 30 + 1] && echo $[RANDOM % 2 + 1] && echo $[RANDOM % 30 + 1] && echo $[RANDOM % 2 + 1] && echo $[RANDOM % 30 + 1] && echo $[RANDOM % 2 + 1]'
+
+alias würfeln='echo $[RANDOM % 20 + 1] $[RANDOM % 20 + 1] $[RANDOM % 20 + 1]'
 
 # added by travis gem
 [ -f /Users/fiedl/.travis/travis.sh ] && source /Users/fiedl/.travis/travis.sh
