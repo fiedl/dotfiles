@@ -7,6 +7,10 @@ def linux?
   RUBY_PLATFORM.include?("linux")
 end
 
+def repo_path
+  __dir__
+end
+
 task :help do
   log.head "dotfiles"
   log.info "Repo: https://github.com/fiedl/dotfiles\n"
@@ -17,20 +21,28 @@ task :help do
   log.info '* Run `rake install` to install or link everything available within this repository, but do not overwrite anything.'
   log.info "* Run `rake install foo bar` to install only `foo` and `bar` out of this list of options:"
   log.info "  - oh-my-zsh"
+  log.info "  - zshrc"
 end
 
 task :install do
   if ARGV == ["install"] # without any other arguments
-    sh "rake install oh-my-zsh"
+    sh "rake install oh-my-zsh zshrc"
   end
 end
 
 task :'oh-my-zsh' => :zsh do
   unless File.exists? File.expand_path "~/.oh-my-zsh"
     sh 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+    sh "mv ~/.zshrc ~/.zshrc.oh-my-zsh"
+    sh "mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc" if File.exists? File.expand_path "~/.zshrc.pre-oh-my-zsh"
   end
 end
 
 task :zsh do
   sh "sudo apt install zsh" if linux? and `which zsh`.strip.blank?
+end
+
+task :zshrc => :zsh do
+  sh "ln -s '#{repo_path}/zshrc' ~/.zshrc" unless File.exists? File.expand_path "~/.zshrc"
+  sh "ls -la ~/ |grep zshrc"
 end
