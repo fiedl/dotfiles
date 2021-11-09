@@ -8,6 +8,8 @@
 	br = branch
 	graph = log --oneline --decorate --graph
 	last = log -1 HEAD
+  cp = cherry-pick -x
+  cpn = cherry-pick --no-commit
 [core]
 	editor = emacs
 	excludefile = /Users/fiedl/.gitignore_global
