@@ -2,7 +2,10 @@ name: Tests
 on: [push]
 jobs:
   install:
-    runs-on: [ubuntu-20.04, macos-11]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macos-11]
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
