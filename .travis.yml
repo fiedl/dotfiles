@@ -1,7 +1,0 @@
-language: generic
-
-os:
-- linux
-- osx
-
-script: make
