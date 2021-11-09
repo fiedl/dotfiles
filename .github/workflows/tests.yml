@@ -15,3 +15,5 @@ jobs:
           make
       - name: Show usage instructions
         run: rake
+      - name: Install oh-my-zsh
+        run: rake install oh-my-zsh
