@@ -1,2 +1,4 @@
 tabSize = 2
 softTabs = true
+include = {*,.tm_properties,.htaccess,.travis.yml,.env}
+excludeDirectories = "{$excludeDirectories,log,node_modules,tmp,volumes}"%
