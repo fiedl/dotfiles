@@ -120,6 +120,14 @@ which colorls > /dev/null && alias ls='colorls'
 alias ll='ls -l'
 alias la='ls -l -a'
 
+alias yt='youtube-dl'
+alias yt-mp3='yt --extract-audio --audio-format m4a'
+yt-play() {
+  youtube-dl --get-title "ytsearch1:$*"
+  echo "TODO: Versuche mpsyt, https://github.com/mps-youtube/mps-youtube"
+  curl $(yt-mp3 --get-url "ytsearch1:$*") | mplayer - > /dev/null
+}
+
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 # https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
