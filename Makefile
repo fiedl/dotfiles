@@ -6,7 +6,6 @@ install:
 	bin/install_ruby
 	ruby --version
 
-	gem install rake colored fiedl-log
+	gem install rake colored fiedl-log || sudo !!
 
 	rake
-
