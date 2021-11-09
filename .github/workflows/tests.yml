@@ -13,3 +13,5 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           make
+      - name: Show usage instructions
+        run: rake
