@@ -18,4 +18,6 @@
 "^t" = ("insertText:", " "); /* thin space */
 "^~ " = ("insertText:", " "); /* thin space */
 "~ " = ("insertText:", " "); /* normal space */
+"^" = ("inserText:", "<");
+"°" = ("inserText:", ">");
 }
