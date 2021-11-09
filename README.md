@@ -1,5 +1,8 @@
-Dieses Repository enthält einige Konfigurationsdateien, die zwischen mehreren Linux-Systemen geteilt werden können.
+# dotfiles
 
+[![Tests](https://github.com/fiedl/dotfiles/actions/workflows/tests.yml/badge.svg)](https://github.com/fiedl/dotfiles/actions/workflows/tests.yml)
+
+These are my dotfiles.
 
 ## Installation
 
@@ -16,3 +19,12 @@ cd ~
 ln -s dotfiles/zshrc .zshrc
 ```
 
+## What are dotfiles?
+
+Have a look at http://dotfiles.github.io.
+
+## Author and License
+
+2013-2021 Sebastian Fiedlschuster
+
+MIT License
