@@ -3,6 +3,10 @@ require 'active_support/core_ext/object/blank'
 
 task :default => :help
 
+def linux?
+  RUBY_PLATFORM.include?("linux")
+end
+
 task :help do
   log.head "dotfiles"
   log.info "Repo: https://github.com/fiedl/dotfiles\n"
@@ -17,10 +21,14 @@ end
 
 task :install do
   if ARGV == ["install"] # without any other arguments
-    shell "rake install oh-my-zsh"
+    sh "rake install oh-my-zsh"
   end
 end
 
-task :'oh-my-zsh' do
-  shell 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+task :'oh-my-zsh' => :zsh do
+  sh 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+end
+
+task :zsh do
+  sh "sudo apt install zsh" if linux? and `command -v zsh`.blank?
 end
