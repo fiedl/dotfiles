@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! -x  "$(command -v ruby)" ]; then
+  echo "nö"
+  if [ -x "$(command -v apt)" ]; then
+    sudo apt install ruby
+  else
+    echo Please install ruby first
+    exit 1
+  fi
+fi
