@@ -26,7 +26,9 @@ task :install do
 end
 
 task :'oh-my-zsh' => :zsh do
-  sh 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+  unless File.exists? File.expand_path "~/.oh-my-zsh"
+    sh 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+  end
 end
 
 task :zsh do
