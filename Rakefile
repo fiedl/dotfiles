@@ -30,5 +30,5 @@ task :'oh-my-zsh' => :zsh do
 end
 
 task :zsh do
-  sh "sudo apt install zsh" if linux? and `command -v zsh`.blank?
+  sh "sudo apt install zsh" if linux? and `which zsh`.strip.blank?
 end
