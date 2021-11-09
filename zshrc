@@ -134,6 +134,10 @@ yt-play() {
 
 
 
+# force python 3. .zshenv is executed not last
+# This is python 3 from homebrew. See `brew info python`.
+export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
+
 # https://superuser.com/a/208294/273249
 alias mate-new-window="open -na TextMate"
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh

@@ -14,6 +14,10 @@ export PATH=$PATH:/home/fiedl/.exec
 [[ -f /Library/Java/Home ]] && export JAVA_HOME="/Library/Java/Home"
 [[ -f /usr/libexec/java_home ]] && export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
+# This is python 3 from homebrew. See `brew info python`.
+export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
+export PYTHONPATH="$(which python):$PYTHONPATH"
+
 # icecube
 export ICECUBE_SOFTWARE="$HOME/icecube/software"   # modify this to your needs!
 export SVN="http://code.icecube.wisc.edu/svn"
