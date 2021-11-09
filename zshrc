@@ -145,3 +145,6 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
+# overwrite yabai path for debug version
+export PATH="$HOME/code/yabai/bin:$PATH"
+
