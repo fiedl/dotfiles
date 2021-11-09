@@ -129,6 +129,9 @@ yt-play() {
 }
 
 
+
+# https://superuser.com/a/208294/273249
+alias mate-new-window="open -na TextMate"
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 # https://gist.github.com/magicdude4eva/2d4748f8ef3e6bf7b1591964c201c1ab
 pasteinit() {
