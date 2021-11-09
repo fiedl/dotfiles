@@ -162,3 +162,5 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # overwrite yabai path for debug version
 export PATH="$HOME/code/yabai/bin:$PATH"
 
+alias bat='batcat' # see `aptitude show bat`
+
