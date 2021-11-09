@@ -1,4 +1,4 @@
-REQUIRED_GEMS=rake colored fiedl-log
+REQUIRED_GEMS=rake colored fiedl-log activesupport
 
 install:
 	@echo "Welcome to https://github.com/fiedl/dotfiles!"

@@ -1,4 +1,5 @@
 require 'fiedl/log'
+require 'active_support/core_ext/object/blank'
 
 task :default => :help
 
