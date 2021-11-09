@@ -5,3 +5,8 @@ install:
 
 	bin/install_ruby
 	ruby --version
+
+	gem install rake colored fiedl-log
+
+	rake
+
