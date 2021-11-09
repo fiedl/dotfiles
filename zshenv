@@ -6,6 +6,10 @@ export PATH=/usr/local/sbin:$PATH
 PATH="$HOME/.rbenv/bin:$PATH"
 PATH="$HOME/.rbenv/shims:$PATH"
 
+# go
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
+
 # executable scripts
 export PATH=$PATH:/home/fiedl/.exec
 
