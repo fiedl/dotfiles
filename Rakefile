@@ -64,10 +64,17 @@ task :git_submodules do
 end
 task :keyboard => [:karabiner, :phoenix]
 
+task :karabiner do
+  if mac?
+    sh "ln -s '#{repo_path}/config/karabiner' ~/.config/karabiner" unless File.exists? File.expand_path "~/.config/karabiner"
+    sh "brew install karabiner-elements" unless File.exists? "/Applications/Karabiner-Elements.app"
+  end
+end
+
 task :phoenix do
   if mac?
     sh "ln -s '#{repo_path}/phoenix.js' ~/.phoenix.js" unless File.exists? File.expand_path "~/.phoenix.js"
     sh "brew install phoenix" unless File.exists? "/Applications/Phoenix.app"
-    sh "brew install coffeescript" unless `which coffee`.strip.present?("
+    sh "brew install coffeescript" unless `which coffee`.strip.present?
   end
 end
