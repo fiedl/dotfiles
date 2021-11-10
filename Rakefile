@@ -48,7 +48,11 @@ task :zshrc => :zsh do
   sh "ls -la ~/ |grep zshrc"
 end
 
-task :'dot-zsh' => :'oh-my-zsh' do
+task :'dot-zsh' => [:'oh-my-zsh', :git_submodules] do
   sh "ln -s '#{repo_path}/dot-zsh' ~/.zsh" unless File.exists? File.expand_path "~/.zsh"
   sh "ls ~/.zsh"
+end
+
+task :git_submodules do
+  sh "git submodule update --init"
 end
