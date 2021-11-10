@@ -28,12 +28,14 @@ task :help do
   log.info "  - oh-my-zsh   https://github.com/ohmyzsh/ohmyzsh"
   log.info "  - dot-zsh     https://github.com/fiedl/dot-zsh"
   log.info "  - zshrc"
+  log.info "  - homebrew"
+  log.info "  - apps"
   log.info "  - keyboard"
 end
 
 task :install do
   if ARGV == ["install"] # without any other arguments
-    sh "rake install dot-zsh zshrc"
+    sh "rake install dot-zsh zshrc homebrew keyboard apps"
   end
 end
 
@@ -62,6 +64,26 @@ end
 task :git_submodules do
   sh "git submodule update --init"
 end
+
+task :homebrew do
+  if mac? and not `which brew`.strip.present?
+    sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+  end
+end
+
+task :apps do
+  if mac?
+    sh "brew install iterm2" unless File.exists? "/Applications/iTerm.app"
+    sh "brew install textmate" unless File.exists? "/Applications/TextMate.app"
+    sh "brew install vlc" unless File.exists? "/Applications/VLC.app"
+    sh "brew install cyberduck" unless File.exists? "/Applications/Cyberduck.app"
+    sh "brew install github" unless File.exists? "/Applications/Github Desktop.app"
+    # sh "brew install zoom" unless File.exists? "/Applications/zoom.us.app"
+    # sh "brew install slack" unless File.exists? "/Applications/Slack.app"
+    # sh "brew install signal" unless File.exists? "/Applications/Signal.app"
+  end
+end
+
 task :keyboard => [:karabiner, :phoenix]
 
 task :karabiner do

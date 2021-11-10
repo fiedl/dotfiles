@@ -9,7 +9,7 @@ These are my dotfiles.
 ```shell
 git clone https://github.com/fiedl/dotfiles.git .dotfiles
 make
-rake install oh-my-zsh dot-zsh zshrc
+rake install oh-my-zsh dot-zsh zshrc homebrew keyboard apps
 ```
 
 Or symlink manually:
