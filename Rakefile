@@ -7,6 +7,11 @@ def linux?
   RUBY_PLATFORM.include?("linux")
 end
 
+def mac?
+  RUBY_PLATFORM.include?("darwin")
+end
+
+
 def repo_path
   __dir__
 end
@@ -23,6 +28,7 @@ task :help do
   log.info "  - oh-my-zsh   https://github.com/ohmyzsh/ohmyzsh"
   log.info "  - dot-zsh     https://github.com/fiedl/dot-zsh"
   log.info "  - zshrc"
+  log.info "  - keyboard"
 end
 
 task :install do
@@ -55,4 +61,13 @@ end
 
 task :git_submodules do
   sh "git submodule update --init"
+end
+task :keyboard => [:karabiner, :phoenix]
+
+task :phoenix do
+  if mac?
+    sh "ln -s '#{repo_path}/phoenix.js' ~/.phoenix.js" unless File.exists? File.expand_path "~/.phoenix.js"
+    sh "brew install phoenix" unless File.exists? "/Applications/Phoenix.app"
+    sh "brew install coffeescript" unless `which coffee`.strip.present?("
+  end
 end
