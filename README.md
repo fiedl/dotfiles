@@ -7,7 +7,7 @@ These are my dotfiles.
 ## Installation
 
 ```shell
-git clone git@github.com:fiedl/dotfiles.git
+git clone https://github.com/fiedl/dotfiles.git .dotfiles
 make
 rake install oh-my-zsh dot-zsh zshrc
 ```
