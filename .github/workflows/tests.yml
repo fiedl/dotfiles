@@ -17,5 +17,7 @@ jobs:
         run: rake
       - name: Install oh-my-zsh
         run: rake install oh-my-zsh
+      - name: Install dot-zsh
+        run: rake install dot-zsh
       - name: Install zshrc
         run: rake install zshrc

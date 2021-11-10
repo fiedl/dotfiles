@@ -20,13 +20,14 @@ task :help do
   log.section "Usage"
   log.info '* Run `rake install` to install or link everything available within this repository, but do not overwrite anything.'
   log.info "* Run `rake install foo bar` to install only `foo` and `bar` out of this list of options:"
-  log.info "  - oh-my-zsh"
+  log.info "  - oh-my-zsh   https://github.com/ohmyzsh/ohmyzsh"
+  log.info "  - dot-zsh     https://github.com/fiedl/dot-zsh"
   log.info "  - zshrc"
 end
 
 task :install do
   if ARGV == ["install"] # without any other arguments
-    sh "rake install oh-my-zsh zshrc"
+    sh "rake install dot-zsh zshrc"
   end
 end
 
@@ -45,4 +46,9 @@ end
 task :zshrc => :zsh do
   sh "ln -s '#{repo_path}/zshrc' ~/.zshrc" unless File.exists? File.expand_path "~/.zshrc"
   sh "ls -la ~/ |grep zshrc"
+end
+
+task :'dot-zsh' => :'oh-my-zsh' do
+  sh "ln -s '#{repo_path}/dot-zsh' ~/.zsh" unless File.exists? File.expand_path "~/.zsh"
+  sh "ls ~/.zsh"
 end

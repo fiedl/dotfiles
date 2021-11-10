@@ -9,7 +9,7 @@ These are my dotfiles.
 ```shell
 git clone git@github.com:fiedl/dotfiles.git
 make
-rake install oh-my-zsh zshrc
+rake install oh-my-zsh dot-zsh zshrc
 ```
 
 Or symlink manually:
