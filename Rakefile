@@ -31,11 +31,12 @@ task :help do
   log.info "  - homebrew"
   log.info "  - apps"
   log.info "  - keyboard"
+  log.info "  - bin"
 end
 
 task :install do
   if ARGV == ["install"] # without any other arguments
-    sh "rake install dot-zsh zshrc homebrew keyboard apps"
+    sh "rake install dot-zsh zshrc homebrew keyboard bin apps"
   end
 end
 
@@ -99,4 +100,9 @@ task :phoenix do
     sh "brew install phoenix" unless File.exists? "/Applications/Phoenix.app"
     sh "brew install coffeescript" unless `which coffee`.strip.present?
   end
+end
+
+desc "Symlink bin folder to ~/bin"
+task :bin do
+  sh "ln -s '#{repo_path}/bin' ~/bin" unless File.exists? File.expand_path "~/bin"
 end
