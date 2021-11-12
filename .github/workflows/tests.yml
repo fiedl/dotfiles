@@ -21,3 +21,8 @@ jobs:
         run: rake install dot-zsh
       - name: Install zshrc
         run: rake install zshrc
+      - name: Install bin
+        run: |
+          rake install bin
+          ls ~/bin
+          ~/bin/f ffind

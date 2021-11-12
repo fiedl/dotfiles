@@ -1,3 +1,6 @@
 [submodule "dot-zsh"]
 	path = dot-zsh
 	url = https://github.com/fiedl/dot-zsh.git
+[submodule "bin/friendly-find"]
+	path = bin/friendly-find
+	url = https://github.com/sjl/friendly-find.git
