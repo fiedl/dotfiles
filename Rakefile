@@ -72,7 +72,7 @@ task :homebrew do
   end
 end
 
-task :apps do
+task :apps => :emacs do
   if mac?
     sh "brew install iterm2" unless File.exists? "/Applications/iTerm.app"
     sh "brew install textmate" unless File.exists? "/Applications/TextMate.app"
@@ -105,4 +105,8 @@ end
 desc "Symlink bin folder to ~/bin"
 task :bin do
   sh "ln -s '#{repo_path}/bin' ~/bin" unless File.exists? File.expand_path "~/bin"
+end
+
+task :emacs do
+  sh "brew install emacs" if mac?
 end
