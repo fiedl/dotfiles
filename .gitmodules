@@ -4,3 +4,6 @@
 [submodule "bin/friendly-find"]
 	path = bin/friendly-find
 	url = https://github.com/sjl/friendly-find.git
+[submodule "emacs.d"]
+	path = emacs.d
+	url = https://github.com/hlissner/doom-emacs
