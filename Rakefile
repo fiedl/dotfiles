@@ -73,7 +73,7 @@ task :homebrew do
   end
 end
 
-task :apps => :emacs do
+task :apps => [:emacs, :bat] do
   if mac?
     sh "brew install iterm2" unless File.exists? "/Applications/iTerm.app"
     sh "brew install textmate" unless File.exists? "/Applications/TextMate.app"
@@ -83,6 +83,14 @@ task :apps => :emacs do
     # sh "brew install zoom" unless File.exists? "/Applications/zoom.us.app"
     # sh "brew install slack" unless File.exists? "/Applications/Slack.app"
     # sh "brew install signal" unless File.exists? "/Applications/Signal.app"
+  end
+end
+
+task :bat do
+  if mac?
+    sh "brew install bat" if `brew info bat`.include? "Not installed"
+  elsif linux?
+    sh "sudo apt install bat"
   end
 end
 
