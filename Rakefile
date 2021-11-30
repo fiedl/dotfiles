@@ -32,6 +32,7 @@ task :help do
   log.info "  - apps"
   log.info "  - keyboard"
   log.info "  - bin"
+  log.info "  - git"
 end
 
 task :install do
@@ -111,4 +112,9 @@ task :emacs do
   sh "brew install emacs" if mac?
   sh "ln -s '#{repo_path}/emacs.d' ~/.emacs.d" unless File.exists? File.expand_path "~/.emacs.d"
   sh "~/.emacs.d/bin/doom install"
+end
+
+task :git => :git_config
+task :git_config do
+  sh "ln -s '#{repo_path}/gitconfig' ~/.gitconfig" unless File.exists? File.expand_path "~/.gitconfig"
 end
