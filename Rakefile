@@ -12,6 +12,11 @@ def mac?
 end
 
 
+def brew_install(formula)
+  sh "brew install #{formula}" if `brew info #{formula}`.include? "Not installed"
+end
+
+
 def repo_path
   __dir__
 end
@@ -120,6 +125,22 @@ task :emacs do
   sh "brew install emacs" if mac?
   sh "ln -s '#{repo_path}/emacs.d' ~/.emacs.d" unless File.exists? File.expand_path "~/.emacs.d"
   sh "~/.emacs.d/bin/doom install"
+end
+
+task :yabai do
+  sh "brew install koekeishiya/formulae/yabai --HEAD" if `brew info koekeishiya/formulae/yabai`.include? "Not installed"
+  sh "ln -s '#{repo_path}/yabairc' ~/.yabairc" unless File.exists? File.expand_path "~/.yabairc"
+
+  brew_install "koekeishiya/formulae/skhd"
+  sh "ln -s '#{repo_path}/skhdrc' ~/.skhdrc" unless File.exists? File.expand_path "~/.skhdrc"
+  sh "brew services start skhd"
+
+  brew_install "ubersicht"
+  open "/Applications/Übersicht.app"
+
+  sh "git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar" unless File.exists? File.expand_path "~/Library/Application\ Support/Übersicht/widgets/simple-bar"
+  brew_install "homebrew/cask-fonts/font-jetbrains-mono"
+  brew_install "homebrew/cask-fonts/font-jetbrains-mono-nerd-font"
 end
 
 task :git => :git_config
