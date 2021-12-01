@@ -134,10 +134,21 @@ task :yabai do
   brew_install "koekeishiya/formulae/skhd"
   sh "ln -s '#{repo_path}/skhdrc' ~/.skhdrc" unless File.exists? File.expand_path "~/.skhdrc"
   sh "brew services start skhd"
+end
 
+task :polybar => :ubersicht do
+  brew_install "jq"
+  # https://github.com/knazarov/dotfiles/tree/master/ubersicht/polybar
+  # This lives now in `.dotfiles/ubersicht/polybar`.
+end
+
+task :ubersicht do
+  sh "ln -s '#{repo_path}/ubersicht' ~/Library/Application\\ Support/Übersicht/widgets" unless File.exists? File.expand_path "~/Library/Application Support/Übersicht/widgets"
   brew_install "ubersicht"
   open "/Applications/Übersicht.app"
+end
 
+task :simple_bar => :ubersicht do
   sh "git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar" unless File.exists? File.expand_path "~/Library/Application\ Support/Übersicht/widgets/simple-bar"
   brew_install "homebrew/cask-fonts/font-jetbrains-mono"
   brew_install "homebrew/cask-fonts/font-jetbrains-mono-nerd-font"
