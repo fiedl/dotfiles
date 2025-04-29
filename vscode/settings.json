@@ -1,0 +1,68 @@
+{
+    "telemetry.enableTelemetry": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.acceptSuggestionOnEnter": "off",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "editor.minimap.enabled": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "workbench.colorTheme": "RailsCasts",
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#FF0A84",
+        "tab.activeBackground": "#777777",
+    },
+    "editor.tabSize": 2,
+    "editor.inlineSuggest.enabled": true,
+    //"editor.stickyTabStops": true,
+    "workbench.sideBar.location": "right",
+    "editor.guides.indentation": true,
+    "editor.renderLineHighlight": "none",
+    "[ruby]": {
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false
+    },
+    "workbench.editor.showIcons": false,
+    "zenMode.hideActivityBar": false,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabActionCloseVisibility": false,
+    "editor.accessibilitySupport": "off",
+    "redhat.telemetry.enabled": false,
+    "openapi.platformUrl": "https://platform.42crunch.com",
+    "openapi.platformServices": "",
+    "openapi.platformScandManager": {
+        "url": "",
+        "auth": "none",
+        "header": {
+            "name": "",
+            "value": ""
+        }
+    },
+    "openapi.docker": {
+        "replaceLocalhost": true,
+        "useHostNetwork": true
+    },
+    "openapi.platformConformanceScanRuntime": "docker",
+    "openapi.platformConformanceScanImage": "42crunch/scand-agent:v2",
+    "openapi.platformRepository": "https://repo.42crunch.com/downloads",
+    "redoclyOpenAPI.api.key": "sk_cCEbOaqEdjYSwrsvtPOH/bDKzJk=_72uRgUcQt/zLXxP6/iwO8bhiU2QugRXrhIZyTvgnbrw=",
+    "redoclyOpenAPI.api.region": "us",
+    "github.copilot.chat.localeOverride": "en",
+    "editor.fontWeight": 1,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.startupEditor": "none",
+    "github.copilot.advanced": {
+
+    },
+    "editor.stickyScroll.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.virtualSpace": true
+}
