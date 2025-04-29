@@ -156,16 +156,23 @@ move_active_window_and_go_to_space = (i)->
 
 main_screen = -> Screen.all()[0]
 
-Key.on 'f18', [], ->
-  Window.focused().setFrame WindowPreset.next().frame()
+apply_window_frame = (frame)->
+  # We need to set the frame twice. Otherwise, the height might be set before the position
+  # and then be reset by the operating system; resulting in a too small window height.
+  Window.focused().setFrame frame
+  Window.focused().setFrame frame
 
-Key.on 'left', caps_lock, ->
-  Window.focused().setFrame left_preset().frame()
+Key.on 'f18', [], ->
+  apply_window_frame WindowPreset.next().frame()
+
+Key.on 'f18', ['shift'], ->
+  apply_window_frame WindowPreset.prev().frame()
 
 Key.on 'right', caps_lock, ->
   Window.focused().setFrame right_preset().frame()
 
 
+screen_top_padding = -> 12
 window_padding = -> 12
 
 left_preset = -> WindowPreset.new({left: 0.0, width: 0.5})
@@ -174,6 +181,7 @@ right_preset = -> WindowPreset.new({left: 0.5, width: 0.5})
 class WindowPreset
   left: 0
   width: 0
+  screen: 0
   @destroy_all: -> @all = []
   @new: (args)->
     new_preset = new WindowPreset
@@ -188,12 +196,18 @@ class WindowPreset
     @current_index += 1
     @current_index = 0 if @current_index >= @all.length
     @all[@current_index]
+  @prev: ->
+    @current_index -= 1
+    @current_index = @all.length - 1 if @current_index < 0
+    @all[@current_index]
+  screen_frame: ->
+    Screen.all()[@screen].flippedVisibleFrame()
   frame: ->
-    frame = main_screen().flippedVisibleFrame()
-    frame.x = frame.width * @left + window_padding()
-    frame.width = frame.width * @width - window_padding()
-    frame.y = frame.y + window_padding()
-    frame.height = frame.height - window_padding() * 2
+    frame = @screen_frame()
+    frame.x = frame.x + frame.width * @left + window_padding()
+    frame.width = frame.width * @width - window_padding() * 2
+    frame.y = frame.y + screen_top_padding()
+    frame.height = frame.height - screen_top_padding() - window_padding()
     return frame
   @second: ->
     @all[1]
@@ -201,19 +215,25 @@ class WindowPreset
 Event.on 'screensDidChange', -> initialize_window_presets()
 
 initialize_window_presets = ->
+  golden_ratio = 0.618
   WindowPreset.destroy_all()
   if main_screen().visibleFrame().width > 2500
-    WindowPreset.create {left: 0.0, width: 1 / 3}
-    WindowPreset.create {left: 1 / 3, width: 1 / 3}
-    WindowPreset.create {left: 2 / 3, width: 1 / 3}
-    #if Screen.all().length > 1
-    #  WindowPreset.create {left: 1.0, width: 1 / 3}
-    #  WindowPreset.create {left: 4 / 3, width: 1 / 3}
-    #  WindowPreset.create {left: 5 / 3, width: 1 / 3}
+    WindowPreset.create {left: 0.0, width: 1 / 3, screen: 0}
+    WindowPreset.create {left: 1 / 3, width: 1 / 3, screen: 0}
+    WindowPreset.create {left: 2 / 3, width: 1 / 3, screen: 0}
+    if Screen.all().length == 2
+      WindowPreset.create {left: 0.0, width: 1 / 3, screen: 1}
+      WindowPreset.create {left: 1 / 3, width: 1 / 3, screen: 1}
+      WindowPreset.create {left: 2 / 3, width: 1 / 3, screen: 1}
+    if Screen.all().length == 3
+      WindowPreset.create {left: 0.0, width: 1 / 3, screen: 2}
+      WindowPreset.create {left: 1 / 3, width: 1 / 3, screen: 2}
+      WindowPreset.create {left: 2 / 3, width: 1 / 3, screen: 2}
+      WindowPreset.create {left: 0, width: golden_ratio, screen: 1}
+      WindowPreset.create {left: golden_ratio, width: (1 - golden_ratio), screen: 1}
   else
-    golden_ratio = 0.618
-    WindowPreset.create {left: 0.0, width: golden_ratio}
-    WindowPreset.create {left: golden_ratio, width: (1 - golden_ratio)}
+    WindowPreset.create {left: 0.0, width: golden_ratio, screen: 0}
+    WindowPreset.create {left: golden_ratio, width: (1 - golden_ratio), screen: 0}
 
 initialize_window_presets()
 
